@@ -1,4 +1,3 @@
-```
 class Solution
 {
 public:
@@ -19,5 +18,3 @@ public:
         return vp;
     }
 };
-
-```
