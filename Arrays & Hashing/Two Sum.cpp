@@ -3,16 +3,16 @@ class Solution
 public:
     vector<int> twoSum(vector<int> &nums, int target)
     {
-        int i, j;
-        for (i = 0; i < nums.size(); i++)
+        unordered_map<int, int> index;
+        int i;
+        for (i = 1; i <= nums.size(); i++)
         {
-            for (j = i + 1; j < nums.size(); j++)
+            int need = target - nums[i - 1];
+            if (index[need])
             {
-                if (nums[i] + nums[j] == target)
-                {
-                    return {i, j};
-                }
+                return {min(i, index[need]) - 1, max(i, index[need]) - 1};
             }
+            index[nums[i - 1]] = i;
         }
         return {};
     }
